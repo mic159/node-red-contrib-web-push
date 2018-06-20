@@ -12,26 +12,30 @@ module.exports = function (RED) {
         vapidConfig.privateKey
       );
 
+      this.tokenFilename = RED.nodes.getNode(config.tokens).filename;
+
       this.on('input', this.onInput.bind(this))
       this.on('close', this.onClose.bind(this))
+    }
+
+    loadTokens() {
+      const fs = require('fs')
+      const file = fs.readFileSync(this.tokenFilename, {encoding: 'utf8'})
+      return file.split('\n').filter((line) => !!line).map(JSON.parse)
     }
 
     onInput(msg) {
       try {
         this.status({ fill: "blue", shape: "dot", text: " " })
 
-        let payload
-        if ((msg.notification != null) && (typeof msg.notification === "object")) {
-            payload = JSON.stringify(msg.notification)
+        let payload = msg.payload
+
+        // Payload must be a string, so auto-jsonify it if its an object.
+        if ((payload != null) && (typeof payload === "object")) {
+            payload = JSON.stringify(payload)
         }
 
-        const tokens = msg.tokens || []
-
-        if (tokens.length == 0) {
-          this.warn('No recipients in msg.tokens')
-        }
-
-        const calls = tokens.map((token) => (
+        const calls = this.loadTokens().map((token) => (
           this.webPush.sendNotification(token, payload).catch(e => e)
         ))
 

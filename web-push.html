@@ -4,7 +4,8 @@
         color: '#a6bbcf',
         defaults: {
             name: { value: "" },
-            vapidConfiguration: { value: '', type: "vapid-configuration", required: true }
+            vapidConfiguration: { value: '', type: "vapid-configuration", required: true },
+            tokens: { value: '', type: "push-token-storage", required: true },
         },
         inputs: 1,
         icon: "chrome_icon.png",
@@ -15,14 +16,18 @@
 </script>
 
 <script type="text/x-red" data-template-name="web-push">
-    <div class="form-row">
-        <label for="node-input-vapidConfiguration"><i class="fa fa-cog"></i> VAPID Configuration</label>
-        <input type="text" id="node-input-vapidConfiguration">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-vapidConfiguration"><i class="fa fa-cog"></i> VAPID Configuration</label>
+    <input type="text" id="node-input-vapidConfiguration">
+  </div>
+  <div class="form-row">
+    <label for="node-input-tokens"><i class="icon-tag"></i> Send to</label>
+    <input type="text" id="node-input-tokens">
+  </div>
 </script>
 
 <script type="text/x-red" data-help-name="web-push">

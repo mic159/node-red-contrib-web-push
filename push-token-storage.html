@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    RED.nodes.registerType('push-token-storage', {
+        category: 'config',
+        defaults: {
+            name: { value: '' },
+            filename: { value: '', required: true },
+        },
+        label: function () {
+            return this.name || 'push tokens';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="push-token-storage">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-filename"><i class="icon-file"></i> File path to store the tokens (absolute)</label>
+        <input type="text" id="node-config-input-filename">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="push-token-storage">
+    <p>Push notification token storage</p>
+</script>

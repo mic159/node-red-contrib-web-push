@@ -14,7 +14,8 @@
   "node-red": {
     "nodes": {
       "web-push": "web-push.js",
-      "vapid-configuration": "vapid-configuration.js"
+      "vapid-configuration": "vapid-configuration.js",
+      "push-token-storage": "push-token-storage.js"
     }
   }
 }
