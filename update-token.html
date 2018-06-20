@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    RED.nodes.registerType('update-token', {
+        category: 'push',
+        color: '#a6bbcf',
+        defaults: {
+            tokens: { value: '', type: "push-token-storage", required: true },
+            mode: { value: 'add-or-update' },
+        },
+        inputs: 1,
+        outputs: 1,
+        label: function () {
+            return this.mode === 'remove' ? 'Remove token' : 'Add token';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="update-token">
+  <div class="form-row">
+    <label for="node-input-tokens"><i class="icon-tag"></i> Send to</label>
+    <input type="text" id="node-input-tokens">
+  </div>
+  <div class="form-row">
+    <label for="node-input-mode"><i class="icon-tag"></i> Mode</label>
+    <select id="node-input-mode">
+      <option value="add-or-update">Add or update</option>
+      <option value="remove">Remove a token</option>
+    </select>
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="update-token">
+    <p>Add or update a web push notification token.</p>
+    <p>To be used with a web endpoint.</p>
+</script>

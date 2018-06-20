@@ -15,7 +15,8 @@
     "nodes": {
       "web-push": "web-push.js",
       "vapid-configuration": "vapid-configuration.js",
-      "push-token-storage": "push-token-storage.js"
+      "push-token-storage": "push-token-storage.js",
+      "update-token": "update-token.js"
     }
   }
 }
