@@ -1,9 +1,9 @@
 module.exports = function(RED) {
-    function RemoteServerNode(n) {
+    function VapidConfiguration(n) {
         RED.nodes.createNode(this,n);
-        this.name = n.name;
+        this.subject = n.subject;
         this.publicKey = n.publicKey;
         this.privateKey = n.privateKey;
     }
-    RED.nodes.registerType("vapid-configuration",RemoteServerNode);
+    RED.nodes.registerType("vapid-configuration", VapidConfiguration);
 }
