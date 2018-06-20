@@ -1,0 +1,37 @@
+<script type="text/javascript">
+    RED.nodes.registerType('vapid-configuration', {
+        category: 'config',
+        defaults: {
+            name: { value: '' },
+            subject: { value: '', required: true },
+            publicKey: { value: '', required: true },
+            privateKey: { value: '', required: true },
+        },
+        label: function () {
+            return this.name || this.publicKey;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="vapid-configuration">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-subject"><i class="icon-email"></i> Subject. Either a mailto: link or https: link</label>
+        <input type="text" id="node-config-input-subject">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-publicKey"><i class="icon-tag"></i> VAPID Public Key</label>
+        <input type="text" id="node-config-input-publicKey">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-privateKey"><i class="icon-tag"></i> VAPID Private Key</label>
+        <input type="text" id="node-config-input-privateKey" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="vapid-configuration">
+    <p>VAPID keys for web push notifications.</p>
+</script>

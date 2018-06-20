@@ -1,0 +1,20 @@
+{
+  "name": "node-red-contrib-web-push",
+  "version": "1.0.0",
+  "description": "Node red package to send web push notifications (VAPID)",
+  "keywords": [
+    "node-red",
+    "web-push"
+  ],
+  "author": "mic159",
+  "license": "MIT",
+  "dependencies": {
+    "web-push": "^3.3.1"
+  },
+  "node-red": {
+    "nodes": {
+      "web-push": "web-push.js",
+      "vapid-configuration": "vapid-configuration.js",
+    }
+  }
+}
